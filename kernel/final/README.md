@@ -1,6 +1,6 @@
 # Kfinal artifacts
 
-These are outputs from ABK run [37649518516](https://github.com/zaas-design/ABK/actions/runs/37649518516), plus the boot/system_dlkm/vbmeta pair actually written to the tablet and read back successfully.
+The files present here are outputs from ABK run [37649518516](https://github.com/zaas-design/ABK/actions/runs/37649518516), plus metadata for the boot/system_dlkm/vbmeta pair written to the tablet and read back successfully. The repository currently contains only a subset: `ABK-SystemDlkmModules.bundle.zip` and `vbmeta-a-test.img` are present; the other files listed below were validated locally but could not be uploaded. This is not a complete flashable set.
 
 See [`KERNEL-METADATA.json`](KERNEL-METADATA.json) for build provenance and the test status summary.
 
@@ -17,4 +17,4 @@ See [`KERNEL-METADATA.json`](KERNEL-METADATA.json) for build provenance and the 
 
 The test image omits FEC. Keep the bootloader unlocked and do not treat this test pair as a production AVB package. Do not flash only one member of the `boot + system_dlkm + vbmeta` set. No universal flash script is provided.
 
-`SHA256SUMS.txt` identifies the archived files. `ABK-LICENSE.txt` and `THIRD_PARTY_NOTICES.md` accompany the upstream ABK bundles.
+`SHA256SUMS.txt` identifies files currently present in this repository. `ABK-LICENSE.txt` and `THIRD_PARTY_NOTICES.md` accompany the upstream ABK bundles.

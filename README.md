@@ -10,11 +10,11 @@ This repository records one custom kernel result for the Lenovo Legion Y700 Gen 
 - **Kernel release:** `6.12.30-android16-5-g0baa65ffa8964-ab10018892-4k`
 - **Successful CI build:** [zaas-design/ABK run 37649518516](https://github.com/zaas-design/ABK/actions/runs/37649518516)
 
-The exact raw kernel image SHA-256 is `06321cbfca22c2de883d5e02bd8b43a20cd110974684bcab8c4dc7c4a2b43f3f`. File hashes for all published artifacts are in [kernel/final/SHA256SUMS.txt](kernel/final/SHA256SUMS.txt).
+The exact raw kernel image SHA-256 is `06321cbfca22c2de883d5e02bd8b43a20cd110974684bcab8c4dc7c4a2b43f3f`. Hashes for files currently present in this repository are in [SHA256SUMS.txt](SHA256SUMS.txt).
 
 ## What is here
 
-- [`kernel/final/`](kernel/final/README.md) contains the Kfinal raw Image, the boot image used in the successful test, the matching test `system_dlkm` and `vbmeta` images, and the ABK output bundles.
+- [`kernel/final/`](kernel/final/README.md) contains the artifact notes, the module bundle, the test vbmeta image, and metadata. The full boot image, raw Image, matching system_dlkm image, and other ABK bundles were validated locally but could not be uploaded; this public archive is therefore incomplete and is not a full flashable set.
 - [`gbl_root_canoe/`](gbl_root_canoe/README.md) contains the small TB323FU-specific chainload-only source patch and documents exactly what it changes. It is a delta against upstream, not a repackaged copy of the full upstream repository.
 - [`abk-workflow/`](abk-workflow/README.md) contains the ABK dispatch inputs and snapshots of the relevant workflow files from the exact successful ABK commit.
 
