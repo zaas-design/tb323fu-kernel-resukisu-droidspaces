@@ -14,7 +14,7 @@ The exact raw kernel image SHA-256 is `06321cbfca22c2de883d5e02bd8b43a20cd110974
 
 ## What is here
 
-- [`kernel/final/`](kernel/final/README.md) contains the artifact notes, the module bundle, the test vbmeta image, and metadata. The full boot image, raw Image, matching system_dlkm image, and other ABK bundles were validated locally but could not be uploaded; this public archive is therefore incomplete and is not a full flashable set.
+- [`kernel/final/`](kernel/final/README.md) documents the outputs and their provenance. The three ABK bundles are available from the [successful ABK workflow artifact](https://github.com/zaas-design/ABK/actions/runs/37649518516/artifacts/11497722783); their SHA-256 values match the locally verified copies. The workflow source is pinned to [ABK commit `41a2109`](https://github.com/zaas-design/ABK/tree/41a2109ce466dbd63977fc6fe5641a089fb16660). The GBL-preserving boot image and matched test `system_dlkm`/`vbmeta` images were created for the device test and are not outputs of that ABK run.
 - [`gbl_root_canoe/`](gbl_root_canoe/README.md) contains the small TB323FU-specific chainload-only source patch and documents exactly what it changes. It is a delta against upstream, not a repackaged copy of the full upstream repository.
 - [`abk-workflow/`](abk-workflow/README.md) contains the ABK dispatch inputs and snapshots of the relevant workflow files from the exact successful ABK commit.
 
@@ -44,7 +44,7 @@ Note: Upstream DroidSpaces documentation does not list SUSFS as a supported comb
 
 ## Reproduction references
 
-The exact ABK source revision, kernel source revision, DroidSpaces revision, workflow inputs, and CI link are captured in [`abk-workflow/`](abk-workflow/README.md). Build workflow snapshots are included for reference only: they depend on scripts, actions, configuration, and patch files elsewhere in the ABK checkout. Use the pinned ABK commit; these files are not standalone workflows in this archive.
+The exact ABK source revision, kernel source revision, DroidSpaces revision, workflow inputs, and CI links are captured in [`abk-workflow/`](abk-workflow/README.md). The ABK workflow artifact follows the repository retention policy and may expire. Build workflow snapshots are included for reference only: they depend on scripts, actions, configuration, and patch files elsewhere in the ABK checkout. Use the pinned ABK commit; these files are not standalone workflows in this archive.
 
 ## Upstream projects
 
