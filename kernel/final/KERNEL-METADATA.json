@@ -1,0 +1,25 @@
+{
+  "device": "Lenovo Legion Y700 Gen 5 (TB323FU)",
+  "firmware": "ZUXOS 2.0.11.043, Android 16 base",
+  "kernel_release": "6.12.30-android16-5-g0baa65ffa8964-ab10018892-4k",
+  "build_run": "https://github.com/zaas-design/ABK/actions/runs/37649518516",
+  "build_image_sha256": "06321cbfca22c2de883d5e02bd8b43a20cd110974684bcab8c4dc7c4a2b43f3f",
+  "boot_image_sha256": "9b87d7c892bf814c5b81ad4e5411846448bc8bb01517e3fbab0b0c6c0d293b60",
+  "system_dlkm_sha256": "0865e19c16ede4fa5e239110ab0729fd0315e843920bda95c5911b5c407aa7ba",
+  "vbmeta_sha256": "1a8e7171190233c102b23ebf5c0699329160d4ac119723b7938155ab8911f7fa",
+  "verification": {
+    "first_android_boot": true,
+    "post_write_readback_byte_identical": true,
+    "root_available": true,
+    "rust_binder_loaded": true,
+    "droidspaces_gunyah_modules_present": true,
+    "repeated_reboot_or_cold_boot_tested": false,
+    "wifi_audio_userspace_droidspaces_susfs_kpm_fully_tested": false
+  },
+  "avb_test_limits": {
+    "bootloader_must_remain_unlocked": true,
+    "vbmeta_key_is_temporary_non_lenovo_test_key": true,
+    "system_dlkm_fec_included": false,
+    "do_not_relock": true
+  }
+}

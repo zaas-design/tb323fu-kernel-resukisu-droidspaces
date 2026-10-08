@@ -1,0 +1,42 @@
+diff --git a/submodules/patcher/Makefile b/submodules/patcher/Makefile
+index 7ce3227..ad4dcb7 100644
+--- a/submodules/patcher/Makefile
++++ b/submodules/patcher/Makefile
+@@ -8,6 +8,10 @@ build:
+ 	mkdir -p build
+ 	gcc $(CFLAGS) -o build/patch_abl $(SRCS)
+ 
++build_chainload:
++	mkdir -p build
++	gcc $(CFLAGS) -DCHAINLOAD_ONLY -o build/patch_abl_chainload $(SRCS)
++
+ build_android:
+ 	mkdir -p build
+ 	$(NDK_PATH)/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android31-clang $(CFLAGS) -o build/patch_abl_android $(SRCS)
+diff --git a/submodules/patcher/src/patchs/core.c b/submodules/patcher/src/patchs/core.c
+index fb8fe33..997bb74 100644
+--- a/submodules/patcher/src/patchs/core.c
++++ b/submodules/patcher/src/patchs/core.c
+@@ -174,6 +174,16 @@ int32_t patch_adrl_unlocked_to_locked(char* buffer, int32_t size, uint64_t load_
+ #include "patchs/oplus/warning.h"
+ #include "patchs/oplus/forceenablefastboot.h"
+ bool PatchBuffer(char* data, int32_t size) {
++#ifdef CHAINLOAD_ONLY
++    /* Chainload-only mode keeps the GBL recursion guard but does not alter
++     * the reported bootloader lock state or KeyMaster arguments. */
++    if (patch_abl_gbl(data, size) != 0) {
++        printf("Error: Failed to patch ABL GBL\n");
++        return false;
++    }
++    printf("Chainload-only: patched efisp -> nulls\n");
++    return true;
++#else
+     if (patch_abl_gbl(data, size) != 0)
+         printf("Warning: Failed to patch ABL GBL\n");
+ 
+@@ -219,4 +229,5 @@ bool PatchBuffer(char* data, int32_t size) {
+     // ==========================================================
+ 
+     return 1;
++#endif
+ }
